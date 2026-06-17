@@ -1,0 +1,415 @@
+/* ROOT VARIABLES PRO DESIGN SYSTÉM (Tématika osu! - růžová/tmavá) */
+:root {
+    --primary-color: #ff66aa;
+    /* osu! pink */
+    --secondary-color: #b33982;
+    --background-dark: #121212;
+    --background-card: #1e1e1e;
+    --text-light: #f5f5f5;
+    --text-muted: #aaaaaa;
+    --transition-fast: 0.2s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* RESET A ZÁKLADNÍ TYPOGRAFIE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Comfortaa', cursive, sans-serif;
+    color: var(--text-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER & NAVBAR */
+.header {
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(12px);
+    /* Glassmorphism efekt */
+    -webkit-backdrop-filter: blur(12px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 102, 170, 0.15);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo {
+    font-family: 'Comfortaa', cursive, sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--primary-color);
+    outline: none;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(255, 102, 170, 0.4);
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 25px rgba(255, 102, 170, 0.6);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* HERO SECTION */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #2a1122 0%, var(--background-dark) 70%);
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Canvas pro trojúhelníky a visualizer */
+.osu-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Pulzující osu! logo v pozadí */
+.osu-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: min(70vw, 420px);
+    height: min(70vw, 420px);
+    background-color: var(--primary-color);
+    border: min(2.5vw, 15px) solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 60px rgba(255, 102, 170, 0.45), inset 0 0 40px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.28;
+    /* Poloprůhledné pozadí, aby byl text dobře čitelný */
+    transition: opacity var(--transition-fast), border-color var(--transition-fast);
+}
+
+.osu-logo:hover {
+    opacity: 0.55;
+    border-color: #ffe6f0;
+}
+
+.osu-logo:active {
+    transform: translate(-50%, -50%) scale(0.94) !important;
+}
+
+.osu-logo-text {
+    font-family: 'Comfortaa', cursive, sans-serif;
+    font-size: min(16vw, 100px);
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    margin-top: -5px;
+}
+
+.hero-section h1 {
+    font-size: clamp(3rem, 6vw, 6rem);
+    margin-bottom: 1rem;
+    background: -webkit-linear-gradient(45deg, var(--primary-color), #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.hero-section p {
+    font-family: 'Comfortaa', cursive, sans-serif;
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+/* Obsah nad canvasem a logem */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+    /* Umožní klikat na logo pod textem */
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-content a {
+    pointer-events: auto;
+    /* Znovu povolí interakci na samotných textových prvcích a tlačítkách */
+}
+
+/* ABOUT SECTION & GRID */
+.about-section {
+    padding: 6rem 0;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about-section>.container>p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+}
+
+.mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--background-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border-top: 4px solid var(--primary-color);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* TUTORIAL SECTION */
+.tutorial-section {
+    padding: 6rem 0;
+    background-color: #161616;
+}
+
+.tutorial-section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.tutorial-section>.container>p {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 ratio pro responzivní iframe */
+    height: 0;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    background-color: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* EXPERIENCE SECTION */
+.experience-section {
+    padding: 8rem 0;
+}
+
+.experience-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+}
+
+.experience-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: center;
+}
+
+.text-content {
+    flex: 1 1 500px;
+}
+
+.text-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.text-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.text-content .btn {
+    margin-top: 1.5rem;
+}
+
+.setup-card {
+    flex: 1 1 350px;
+    background: linear-gradient(145deg, var(--background-card) 0%, #111 100%);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.setup-card h3 {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.setup-card ul {
+    list-style: none;
+}
+
+.setup-card li {
+    margin-bottom: 1.2rem;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.setup-card li::before {
+    content: '➔';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: #080808;
+    border-top: 1px solid #1a1a1a;
+    color: var(--text-muted);
+}
+
+/* ANIMATIONS & JS CLASSES */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE (MOBILE FIRST -> TABLET/DESKTOP) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Skryto pro mobilní zobrazení, plně responzivní menu by vyžadovalo JS toggle */
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .experience-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Komplexní průvodce rytmickou hrou osu! Zjistěte, jak hrát, objevte různé typy map a přečtěte si zkušenosti skutečných hráčů.">
+    <meta name="keywords" content="osu!, rytmická hra, návod, hudba, hraní, pp systém">
+    <meta name="author" content="Fuxovi">
+
+    <!-- Open Graph pro Sociální Sítě (SEO a optimalizace) -->
+    <meta property="og:title" content="osu! - Tvůj průvodce rytmickým šílenstvím">
+    <meta property="og:description"
+        content="Komplexní průvodce rytmickou hrou osu! Zjistěte, jak hrát, a objevte komunitu.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fuxovi.github.io/osu-web/">
+
+    <!-- X (Twitter) Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="osu! - Tvůj průvodce">
+    <meta name="twitter:description"
+        content="Komplexní průvodce rytmickou hrou osu! Zjistěte, jak hrát, a objevte komunitu.">
+
+    <title>osu! - Rytmus. Přesnost. Zlepšování.</title>
+
+    <!-- CSS a preload fontů pro lepší výkon -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JSON-LD pro strukturovaná data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "osu! guide",
+      "url": "https://fuxovi.github.io/osu-web/",
+      "author": {
+        "@type": "Person",
+        "name": "Fuxovi"
+      },
+      "description": "Komplexní průvodce rytmickou hrou osu! Zjistěte, jak hrát, objevte různé typy map a přečtěte si zkušenosti skutečných hráčů."
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar" aria-label="Hlavní navigace">
+            <div class="logo">osu! guide</div>
+            <ul class="nav-links">
+                <li><a href="#basic-info">Základní info</a></li>
+                <li><a href="#about">Co je osu!</a></li>
+                <li><a href="#tutorial">Jak hrát</a></li>
+                <li><a href="#experience">Osobní zkušenost</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Úvodní sekce (Hero) -->
+        <section id="hero" class="hero-section">
+            <!-- Canvas pro plovoucí trojúhelníky a visualizer -->
+            <canvas id="osu-canvas" class="osu-canvas"></canvas>
+
+            <!-- Hlavní pulzující osu! logo v pozadí -->
+            <div id="osu-logo" class="osu-logo">
+                <span class="osu-logo-text">osu!</span>
+            </div>
+
+            <div class="container hero-content">
+                <h1>Rytmus. Přesnost. Zlepšování.</h1>
+                <p>Klikni do rytmu a objev hru, která tě nenechá vydechnout.</p>
+                <a href="https://osu.ppy.sh/home" target="_blank" rel="noopener noreferrer" class="btn primary-btn"
+                    aria-label="Přejít na oficiální web hry osu!">
+                    Zaregistruj se a hraj osu!
+                </a>
+            </div>
+        </section>
+
+        <!-- Základní informace z Wikipedie -->
+        <section id="basic-info" class="about-section fade-in" style="padding-bottom: 2rem;">
+            <div class="container">
+                <h2>Základní informace</h2>
+                <div class="experience-content" style="align-items: flex-start; gap: 3rem;">
+                    <div class="text-content">
+                        <p><strong>osu!</strong> je bezplatná (free-to-play) rytmická videohra, kterou původně vyvinul,
+                            vydal a navrhl nezávislý australský vývojář <strong> Dean "peppy" Herbert</strong>.</p>
+                        <p>Hra byla poprvé vydána pro systém Windows na podzim roku 2007. Její hratelnost a celkový
+                            herní koncept jsou silně inspirovány jinými slavnými komerčními rytmickými hrami, z nichž
+                            nejvýraznější je japonský titul Osu! Tatakae! Ouendan. K dalším inspiračním zdrojům patří
+                            klasiky jako Taiko no Tatsuji, Beatmania IIDXnebo O2Jam.
+                        </p>
+                    </div>
+                    <div class="setup-card" style="padding: 2rem;">
+                        <h3>Rychlá fakta</h3>
+                        <ul>
+                            <li><strong>Tvůrce:</strong> Dean "peppy" Herbert</li>
+                            <li><strong>Datum vydání:</strong> 16. září 2007</li>
+                            <li><strong>Žánr:</strong> Rytmická hra</li>
+                            <li><strong>Platformy:</strong> Windows, macOS, Linux, iOS, Android</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Obecně o hře osu! -->
+        <section id="about" class="about-section fade-in" style="padding-top: 4rem;">
+            <div class="container">
+                <h2>Co je to osu!?</h2>
+                <p>osu! je bezplatná rytmická hra s úžasnou komunitou. Cílem je klikat, přetahovat a točit kurzorem
+                    přesně do rytmu hudby. Existuje nekonečné množství map rozdělených do různých herních stylů.</p>
+                <div class="mechanics-grid">
+                    <article class="card">
+                        <h3>Farm Mapy</h3>
+                        <p>Beatmapy, které jsou navržené tak, aby poskytovaly neúměrně vysoké množství Performance
+                            Points (PP) vzhledem ke své obtížnosti. Obvykle mívají přímočaré rytmy, jednoduché skoky
+                            (jumpy) a kratší délku (např. TV size).</p>
+                    </article>
+                    <article class="card">
+                        <h3>Stream a Burst Mapy</h3>
+                        <p>Mapy zaměřené na rychlost, výdrž a kontrolu prstů. Obsahují dlouhé řady rychle za sebou
+                            jdoucích not (streamy) nebo jejich kratší sekvence (bursty), které vyžadují precizní a
+                            stabilní mačkání kláves bez ztráty rytmu.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Tech a Jump Mapy</h3>
+                        <p>Jump mapy testují rychlost pohybu kurzoru (aim) přes celou obrazovku. Tech mapy se zaměřují
+                            na komplexní a netradiční rytmické struktury, nepravidelné rozmístění not a složité slidery,
+                            které prověří schopnost čtení vzorů.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tutoriál (YouTube) -->
+        <section id="tutorial" class="tutorial-section fade-in">
+            <div class="container">
+                <h2>Jak na to (Video Tutoriál)</h2>
+                <p>Ztrácíš se? Následující video ti jednoduše vysvětlí základy a jak s osu! začít.</p>
+                <!-- Lazy loading iframu pro vyšší výkon -->
+                <div class="video-container">
+                    <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/watch?v=qUkvt8DThQc"
+                        title="YouTube video player - osu! tutorial" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zkušenost uživatele -->
+        <section id="experience" class="experience-section fade-in">
+            <div class="container">
+                <h2>Zkušenost hráče: Cesta k top 500K</h2>
+                <div class="experience-content">
+                    <div class="text-content">
+                        <h3>Od Céček k S rankům</h3>
+                        <p>Osu! jsem poprvé hrál v lednu 2025, ale plynule to drtím od srpna 2025. Začínal jsem v srpnu
+                            už někde
+                            kolem ranku 1.4 milionů. Zlom přišel v únoru 2026 – za měsíc jsem nasázel 2.7K plays a
+                            vystřelil nahoru na rank pod 600K.</p>
+                        <p>Dnes už se držím na ranku 440K. A jak se nejlépe zlepšovat? Moje rada zní: <strong>prostě
+                                hrát</strong>. Sám se teď soustředím hlavně na farmení pp, protože ten pocit, když ti
+                            stoupá rank a vidíš svůj denní posun, tě neskutečně motivuje. Zatímco dřív jsem sbíral jedno
+                            "C" za druhým, dnes je mým nejlepším výsledkem čisté "A" se ziskem 124 pp.</p>
+                        <a href="https://osu.ppy.sh/users/37356679" target="_blank" rel="noopener noreferrer"
+                            class="btn secondary-btn" aria-label="Zobrazit osu! profil hráče">
+                            Koukněte na můj profil
+                        </a>
+                    </div>
+                    <div class="setup-card">
+                        <h3>Herní Setup</h3>
+                        <ul>
+                            <li><strong>Myš:</strong> Rapture Scourge</li>
+                            <li><strong>Klávesnice:</strong> HyperX Alloy MKW100</li>
+                            <li><strong>Tablet:</strong> Mám od kamaráda, ale nevím, jak nastavit plochu, aby byla
+                                stejná jako na myši. Takže zatím
+                                klasika myš!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Projekt osu! Web | Vytvořeno s využitím čistých webových technologií.</p>
+        </div>
+    </footer>
+
+    <!-- Minifikovaný přístup pro načtení skriptu -->
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
