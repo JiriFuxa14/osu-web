@@ -114,5 +114,5 @@ Seznam promtů a využití AI v projektu:
 
 ## 7. Galerie (Screenshots)
 *(Až si web spustíte, pořiďte screenshoty a nahraďte tyto zástupné texty za reálné obrázky na vašem GitHubu)*
-- ![Screenshot Desktop Verze](img/desktop.png)
-- ![Screenshot Mobilní Verze](img/mobile.png)
+- ![Screenshot Desktop Verze](obrazky/desktop.png)
+- ![Screenshot Mobilní Verze](obrazky/mobile.png)
