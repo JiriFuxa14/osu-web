@@ -113,6 +113,5 @@ Seznam promtů a využití AI v projektu:
 5. Web se automaticky otevře ve vašem prohlížeči (zpravidla na adrese `http://127.0.0.1:5500`).
 
 ## 7. Galerie (Screenshots)
-*(Až si web spustíte, pořiďte screenshoty a nahraďte tyto zástupné texty za reálné obrázky na vašem GitHubu)*
 - ![Screenshot Desktop Verze](obrazky/desktop.png)
 - ![Screenshot Mobilní Verze](obrazky/mobile.png)
