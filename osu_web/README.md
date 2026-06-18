@@ -3,7 +3,8 @@
 ## 1. Úvod
 **Název projektu:** osu! Web Presentation
 **Téma:** Komplexní průvodce rytmickou hrou osu! včetně osobních zkušeností hráče.
-**Živý web:** https://jirifuxa14.github.io/osu-web/
+**Živý web:** 
+https://jirifuxa14.github.io/osu-web/
 
 ## 2. Použité technologie
 Tento projekt byl vytvořen striktně za pomoci "čistých" webových technologií bez použití jakýchkoliv CSS frameworků (Tailwind, Bootstrap) nebo JS frameworků (React, Vue).
