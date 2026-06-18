@@ -66,22 +66,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Inicializace pozadí (hudby)
-    function initAudio() {
-        if (audioInitialized) return;
-        audioInitialized = true; // Zabraňujeme vícenásobnému volání
+   function initAudio() {
+    if (audioInitialized) return;
+    audioInitialized = true; 
 
-        // Vytvoříme audio element pro hudbu na pozadí
-        bgMusic = new Audio();
-        bgMusic.src = "bg_musik.mp3";
-        bgMusic.loop = true;
-        bgMusic.volume = 0.4; // Zvýšeno pro lepší slyšitelnost
-        bgMusic.preload = "auto";
-        // bgMusic.crossOrigin = "anonymous"; // Zakomentováno, protože to může způsobovat ztlumení zvuku na lokálním Live Serveru
+    bgMusic = new Audio();
+    bgMusic.src = "bg_musik.mp3";
+    bgMusic.loop = true;
+    bgMusic.volume = 0.4; 
+    bgMusic.preload = "auto";
 
-        // Zkusíme propojit s Web Audio API (pro live visualizer)
-        let webAudioWorking = false;
-        try {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // Web Audio API je dočasně vypnuté pro test zvuku
+    analyser = null;
+
+    bgMusic.play().then(() => {
+        console.log("BG music is playing, volume:", bgMusic.volume);
+    }).catch(err => {
+        console.error("BG music play() rejected:", err);
+    });
 
             // Pokud je context suspendovaný, resumeme
             if (audioCtx.state === "suspended") {
